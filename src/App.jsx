@@ -1,5 +1,6 @@
 import { useState } from "react"
 
+
 function ImcCalc() {
   const [alturaValor, setAlturaValor] = useState('');
   const [pesoValor, setPesoValor] = useState('');
@@ -17,7 +18,7 @@ function ImcCalc() {
       if (imc < 18.5) {
         mensagem = 'Você está abaixo do peso';
       } else if (imc >= 18.5 && imc < 25) {
-        mensagem = 'Seu peso está normal';
+        mensagem = 'Seu peso está normal 🎉🎉🎉';
       } else if (imc >= 25 && imc < 30) {
         mensagem = 'Você está com sobrepeso';
       } else {
@@ -31,9 +32,10 @@ function ImcCalc() {
   };
 
   return (
-    <div className="container">
+  <body style={{backgroundColor: 'wheat'}}>    
+    <div style={{textAlign: 'center'}} className="container">
       <h1>Calculadora IMC</h1>
-      <div className="input-container">
+      <div style={{marginBottom: '16px'}} className="input-container">
         <label htmlFor="altura">Coloque sua altura (cm): </label>
         <input 
           type="number" 
@@ -51,12 +53,12 @@ function ImcCalc() {
           onChange={(e) => setPesoValor(e.target.value)} 
         />
       </div>
-      <button className="calcular-btn" onClick={calcularImc}>
+      <button  style={{marginTop: '16px'}} className="calcular-btn" onClick={calcularImc}>
         Clique para calcular o IMC
       </button>
 
-      {imcMsg && imcValor (
-        <div className="resultado">
+      {imcMsg && (
+        <div style={{fontWeight: 'bold'}} className="resultado">
           <p>
             Seu IMC: <span className="imc-valor">{imcValor}</span>
           </p>
@@ -66,8 +68,11 @@ function ImcCalc() {
         </div>
       )}
     </div>
+  </body>
   );
 }
+
+
 
 export default ImcCalc;
 
